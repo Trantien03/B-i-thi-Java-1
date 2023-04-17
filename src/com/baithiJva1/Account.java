@@ -3,48 +3,24 @@ package com.baithiJva1;
 
 import java.util.Scanner;
 
-public class Acount {
+public class Account {
     private String customerCode;
     private String customerName;
     private int accNumber;
     private long amount;
 
-    public Acount() {
-        this.customerCode = getCustomerCode();
-        this.customerName = getCustomerName();
-        this.accNumber = getAccNumber();
-        this.amount = getAmount();
-    }
-    public String getCustomerCode() {
-        return customerCode;
-    }
-
-    public void setCustomerCode(String customerCode) {
+    public Account( String customerCode , String customerName, int accNumber, long amount) {
         this.customerCode = customerCode;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
         this.customerName = customerName;
-    }
-
-    public int getAccNumber() {
-        return accNumber;
-    }
-
-    public void setAccNumber(int accNumber) {
         this.accNumber = accNumber;
-    }
-
-    public long getAmount() {
-        return amount;
-    }
-
-    public void setAmount(long amount) {
         this.amount = amount;
+    }
+
+    public Account() {
+        customerCode = "";
+        customerName = "";
+        accNumber = 0;
+        amount = 0;
     }
     public void input() {
         Scanner scanner = new Scanner(System.in);
@@ -58,13 +34,13 @@ public class Acount {
         }
         this.customerCode = code;
 
-        System.out.print("Enter account number (6 digits starting with 100):");
+        System.out.print("Enter account number (6 digits starting with 100): ");
         String account = scanner.nextLine().trim();
         boolean validAccount = false;
         while (!validAccount) {
             if (account.length() != 6 || !account.startsWith("100")) {
                 System.out.println("Invalid account number (must be 6 digits starting with 100). Please try again.");
-                System.out.print("Enter account number (6 digits starting with 100):");
+                System.out.print("Enter account number (6 digits starting with 100): ");
                 account = scanner.nextLine().trim();
             } else {
                 validAccount = true;
@@ -72,11 +48,11 @@ public class Acount {
         }
         this.accNumber = Integer.parseInt(account);
 
-        System.out.print("Enter customer name:");
+        System.out.print("Enter customer name: ");
         String name = scanner.nextLine().trim();
         while (name.isEmpty()) {
             System.out.println("Invalid customer name. Please try again.");
-            System.out.print("Enter customer name:");
+            System.out.print("Enter customer name: ");
             name = scanner.nextLine().trim();
         }
         this.customerName = name;
