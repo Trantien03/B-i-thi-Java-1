@@ -29,7 +29,7 @@ public class MainClass {
                     break;
 
                 case 2:
-                    System.out.println(" Enter id");
+                    System.out.print(" Enter id");
                     int id=scanner.nextInt();
 
                     Contact ps=management.getContactById(id);
